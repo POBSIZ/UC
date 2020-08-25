@@ -1,0 +1,86 @@
+*{
+    font-family: sans-serif;
+}
+
+body{
+    background-color: #011627;
+}
+
+h1{
+    text-align: center;
+    color: #F6E8EA;
+}
+
+a{
+    text-decoration: none;
+    color: #F6E8EA;
+}
+a:visited{
+    color: #F6E8EA;
+}
+.title-top:hover{
+    text-decoration: underline;
+}
+
+.main-top{
+    background-color: #FF0022;
+    border-radius: 40px 40px 40px 40px;
+}
+
+.main-function{
+    background-color: #FDFFFC;
+    display: inline-block;
+    height: 800px;
+    width: 100%;
+    text-align: center;
+    border-radius: 40px 40px 0px 0px;
+}
+
+.low-section{
+    background-color: #FF0022;
+    text-align: center;
+    display: inline-block;
+    height: 60px;
+    width: 100%;
+    border-radius: 0px 0px 40px 40px;
+}
+
+.search{
+    position: relative;
+    top: 4%;
+}
+
+input{
+    background-color: #FDFFFC;
+    border-radius: 40px 40px 40px 40px;
+    width: 70%;
+    height: 20px;
+    border-style: dashed;
+    border-color: #FF0022;
+    outline: none;
+}
+
+button{
+    background-color: #FF0022;
+    border-radius: 40px 40px 40px 40px;
+    width: 20%;
+    height: 25px;
+    color: #FDFFFC;
+    border: none;
+    outline: none;
+    position: relative;
+    top: 50px;
+}
+button:hover{
+    background-color: #ff3a54;
+}
+
+.opt{
+    outline: none;
+    border: none;
+    background-color: #FF0022;
+    border-radius: 40px 40px 40px 40px;
+    color: #FDFFFC;
+    width: 19%;
+    height: 25px;
+}
