@@ -22,3 +22,8 @@ function redirectMp3(query) {
 function redirectMp4(query) {
 	window.location.href = `${serverURL}/downloadmp4?url=${query}`;
 }
+var newDiv = document.createElement('div');
+newDiv.innerHTML = 'VIDEO URL & NAME';
+newDiv.setAttribute('class', 'p_list');
+var footer = document.getElementsByClassName('low_section');
+footer.appendChild(newDiv)
