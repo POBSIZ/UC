@@ -69,7 +69,7 @@ button{
     border: none;
     outline: none;
     position: relative;
-    top: 50px;
+    top: 60px;
 }
 button:hover{
     background-color: #ff3a54;
@@ -83,4 +83,16 @@ button:hover{
     color: #FDFFFC;
     width: 19%;
     height: 25px;
+}
+
+iframe{
+    border: none;
+    outline: none;
+    position: relative;
+    top: 100px;
+    border-radius: 40px 40px 40px 40px;
+    width: 90%;
+    height: 1000px;
+    overflow-x: hidden;
+    
 }

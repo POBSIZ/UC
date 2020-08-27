@@ -29,6 +29,10 @@ app.get ( '/style.css', (req, res, next) => {
 	res.sendFile (__dirname + '/style.css');
 });
 
+app.get ( '/playlist.html', (req, res, next) => {
+	res.sendFile (__dirname + '/playlist.html');
+});
+
 // Youtube download function
 app.get('/downloadmp3', async (req, res, next) => {
 	try {
