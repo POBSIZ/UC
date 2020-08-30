@@ -30,6 +30,9 @@
                 color: #FDFFFC;
                 top: 25px;
             }
+            button:hover{
+                background-color: #ff3a54;
+            }
 
             a.vid_name{
                 display: block;
@@ -43,6 +46,10 @@
                 white-space: nowrap;
                 width: 100%;
                 height: 25px;
+                text-decoration: none;
+            }
+            a:hover{
+                text-decoration: underline;
             }
 
             .p_list{
@@ -68,30 +75,13 @@
 
         <div class="p_list">
             <div class="p_name">
-                <a class="vid_name"><strong>VIDEO URL & NAME</strong></a>
+                <a class="vid_name" href="https://www.youtube.com/watch?v=6pkmAOYJt-Q&list=PLdSwSvCC3BHxxQ7On2gIxCv7vrVixT31a&index=2&t=0s" target="_blank"><strong> {name_list[i]} </strong></a>
             </div>
-            <button>MP3</button>
-            <button>MP4</button>
+            <button class="bttn" value="mp3">MP3</button>
+            <button class="bttn" value="mp4">MP4</button>
             <hr>
         </div> 
-        
-        <div class="p_list">
-            <div class="p_name">
-                <a class="vid_name"><strong>VIDEO URL & NAME</strong></a>
-            </div>
-            <button>MP3</button>
-            <button>MP4</button>
-            <hr>
-        </div>
-        
-        <div class="p_list">
-            <div class="p_name">
-                <a class="vid_name"><strong>VIDEO URL & NAME</strong></a>
-            </div>
-            <button>MP3</button>
-            <button>MP4</button>
-            <hr>
-        </div>
             
     </body>
+    <script src="p_list.js"></script>
 </html>

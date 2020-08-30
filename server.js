@@ -1,12 +1,14 @@
 const express = require('express');
 const cors = require('cors');
+const ytlist = require('youtube-playlist');
 const ytdl = require('ytdl-core');
 const app = express();
-const http = require('http');
 const PORT = 2393;
+
 var fs = require('fs');
+var ejs = require('ejs')
+const http = require('http');
 const { dirname } = require('path');
-const ytlist = require('youtube-playlist');
 const { info } = require('console');
 const { getInfo, validateID } = require('ytdl-core');
 const { url } = require('inspector');
@@ -17,33 +19,40 @@ const { get } = require('request');
 app.use(cors());
 
 // html/css/js get 
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
+
 app.get('/', async(req, res, next)=>{1
 	res.sendFile(__dirname + '/index.html');
 });
 
-app.get ( '/script.js', (req, res, next) => {
-	res.sendFile (__dirname + '/script.js');
+app.get('/script.js', (req, res, next) => {
+	res.sendFile(__dirname + '/script.js');
 });
 
-app.get ( '/style.css', (req, res, next) => {
-	res.sendFile (__dirname + '/style.css');
+app.get('/style.css', (req, res, next) => {
+	res.sendFile(__dirname + '/style.css');
 });
 
-app.get ( '/playlist.html', (req, res, next) => {
-	res.sendFile (__dirname + '/playlist.html');
+app.get('/playlist.html', (req, res, next) => {
+	res.sendFile(__dirname + '/playlist.html');
 });
+
+app.get('/p_list.js', (req, res, next) =>{
+	res.sendFile(__dirname + '/p_list.js');
+})
 
 // Youtube download function
 app.get('/downloadmp3', async (req, res, next) => {
 	try {
-		
+
 		function getTitleAudio (videoUrl){
 			return new Promise ((resolve, reject) => {
 				ytdl.getBasicInfo (videoUrl, {format: 'mp4'},(err, info) => {
 				if (err) throw err;
 					a_title = info.videoDetails.title.replace(/[^\x00-\x7F]/g, "");
-				resolve (info.title)
 				console.log(info.title)
+				resolve (info.title)
 				})
 			})
 			} 
@@ -61,17 +70,17 @@ app.get('/downloadmp3', async (req, res, next) => {
 		var list_url = req.query.url
 		var isit_playlist = list_url.indexOf('playlist')
 		var link_list = new Array();
-		
+
 		if (isit_playlist != -1){
 			ytlist(list_url, 'url').then(res => {
 				link_list = res.data.playlist;
 				for(i = 0; i<link_list.length; i++){
-					getTitleAudio(link_list[i]).then(console.log(link_list[i]))
+					getTitleAudio(link_list[i])
 				}
 			});
 		}
 		else{
-			getTitleAudio(list_url).then(downloadAUDIO)
+			getTitleAudio(list_url).then(downloadAUDIO).then(console.log(a_title))
 		}
 
 	} catch (err) {
@@ -87,8 +96,8 @@ app.get('/downloadmp4', async (req, res, next) => {
 				ytdl.getBasicInfo (videoUrl, {format: 'mp4'},(err, info) => {
 				if (err) throw err;
 					a_title = info.videoDetails.title.replace(/[^\x00-\x7F]/g, "");
-				resolve (info.title)
 				console.log(info.title)
+				resolve (info.title)
 				})
 			})
 			} 
@@ -110,7 +119,7 @@ app.get('/downloadmp4', async (req, res, next) => {
 			ytlist(list_url, 'url').then(res => {
 				link_list = res.data.playlist;
 				for(i = 0; i<link_list.length; i++){
-					getTitleVideo(link_list[i]).then(console.log(link_list[i]))
+					getTitleVideo(link_list[i])
 				}
 			});
 		}

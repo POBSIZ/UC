@@ -15,15 +15,14 @@ Btn.addEventListener('click', () => {
 	}
 });
 
+
 function redirectMp3(query) {
+	// var newWindow = window.open("about:blank");
 	window.location.href = `${serverURL}/downloadmp3?url=${query}`;
 }
 
 function redirectMp4(query) {
+	// var newWindow = window.open("about:blank");
 	window.location.href = `${serverURL}/downloadmp4?url=${query}`;
 }
-var newDiv = document.createElement('div');
-newDiv.innerHTML = 'VIDEO URL & NAME';
-newDiv.setAttribute('class', 'p_list');
-var footer = document.getElementsByClassName('low_section');
-footer.appendChild(newDiv)
+
