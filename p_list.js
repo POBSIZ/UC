@@ -1,8 +1,3 @@
-var newDiv = document.createElement('div');
-newDiv.setAttribute('class', 'p_list');
-newDiv.innerHTML = `<div class="p_name"> <a class="vid_name" href="{link_list[i]}" target="_blank"> <strong> {name_list[i]} </strong> </a> </div> <button class="bttn" value="mp3">MP3</button> <button class="bttn" value="mp4">MP4</button> <hr>`;
-document.body.appendChild(newDiv);
-
 let serverURL = 'http://localhost:2393';
 let bttn = document.getElementsByClassName('bttn');
 let vidURL = document.querySelector('.vid_name')
