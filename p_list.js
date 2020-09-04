@@ -1,4 +1,4 @@
-let serverURL = 'http://localhost:2393';
+let serverURL = 'https://damp-lake-17965.herokuapp.com/';
 let bttn = document.getElementsByClassName('bttn');
 let vidURL = document.querySelector('.vid_name')
 
@@ -19,18 +19,18 @@ bttn[1].addEventListener('click', () => {
 });
 
 function WinClose(){
-   window.open('','_self').close();     
+   newWindow.open('','_self').close();     
 }
 
 function redirectMp3(query) {
     var newWindow = window.open("about:blank");
     newWindow.location.href = `${serverURL}/downloadmp3?url=${query}`;
-    setTimeout(window.close(),3000);
+    setTimeout(newWindow.close(),3000);
 }
 
 function redirectMp4(query) {
     var newWindow = window.open("about:blank");
     newWindow.location.href = `${serverURL}/downloadmp4?url=${query}`;
-    setTimeout(window.close(),3000);
+    setTimeout(newWindow.close(),3000);
 }
 

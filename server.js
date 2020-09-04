@@ -6,7 +6,7 @@ const app = express();
 const ejs = require('ejs');
 const fs = require('fs');
 const http = require('http');
-const PORT = 2393;
+// const PORT = 2393;
 
 const { dirname } = require('path');
 const { info } = require('console');
@@ -42,8 +42,8 @@ app.get('/p_list.js', (req, res, next) =>{
 	res.sendFile(__dirname + '/p_list.js');
 })
 
-app.get('/temp.ejs', (req, res, next)=>{
-	res.render(__dirname + '/views/temp');
+app.get('/views/temp.ejs', (req, res, next)=>{
+	res.render(__dirname + '/views/temp', {link_list: 'Hey Guys'});
 });
 
 
@@ -96,6 +96,6 @@ app.get('/downloadmp3', async (req, res, next) => {
 	}
 });
 
-app.listen(PORT, () => {
-	console.log(`Server Works !!! At port ${PORT}`);
-});
+// app.listen(PORT, () => {
+// 	console.log(`Server Works !!! At port ${PORT}`);
+// });

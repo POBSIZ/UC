@@ -3,7 +3,6 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- <meta http-equiv="refresh" content="1"> -->
         <title>playlist</title>
     </head>
 
@@ -80,28 +79,22 @@
             <button class="bttn" value="mp4">MP4</button>
             <hr>
         </div> 
-         
-        <%= link_list %> 
-        <% if (link_list.length > 0) { %>
+
+        <% if (link_list.length > 0){ %>
+            <% console.log(link_list.length) %> 
             <% for(i = 0; i < link_list.length; i++){ %> 
                 <div class="p_list">
                     <div class="p_name">
-                        <a class="vid_name" href="<% link_list[i] %> " target="_blank">
-                            <strong> <% link_list[i] %>  </strong> 
+                        <a class="vid_name" href="<%= link_list[i] %> "  target="_blank">
+                            <strong> dsads </strong> 
                         </a>   
                     </div>  
-                    <button class="bttn" value="mp3">MP3</button> 
+                    <button class="bttn" value="mp4">MP4</button> 
                     <button class="bttn" value="mp3">MP3</button> 
                     <hr>  
                 </div>   
             <% } %>  
           <% } %>
     </body>
-    <script src="p_list.js"></script>
-    <!-- <script>
-        // var newDiv = document.createElement('div');
-        // newDiv.setAttribute('class', 'p_list');
-        // newDiv.innerHTML = `<div class="p_name"> <a class="vid_name" href="  " target="_blank"> <strong>  </strong> </a> </div> <button class="bttn" value="mp3">MP3</button> <button class="bttn" value="mp4">MP4</button> <hr>`;
-        // document.body.appendChild(newDiv);
-    </script> -->
+    <script src="../p_list.js"></script>
 </html>
