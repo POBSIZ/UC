@@ -6,15 +6,7 @@ const app = express();
 const ejs = require('ejs');
 const fs = require('fs');
 const http = require('http');
-// const PORT = 2393;
-
-const { dirname } = require('path');
-const { info } = require('console');
-const { getInfo, validateID } = require('ytdl-core');
-const { url } = require('inspector');
-const { deepStrictEqual } = require('assert');
-const { callbackify } = require('util');
-const { get } = require('request');
+const PORT = 2393;
 
 app.use(cors());
 
@@ -42,8 +34,10 @@ app.get('/p_list.js', (req, res, next) =>{
 	res.sendFile(__dirname + '/p_list.js');
 })
 
+var link_list = new Array();
+
 app.get('/views/temp.ejs', (req, res, next)=>{
-	res.render(__dirname + '/views/temp', {link_list: 'Hey Guys'});
+	res.render(__dirname + '/views/temp', {link_list: link_list});
 });
 
 
@@ -75,11 +69,12 @@ app.get('/downloadmp3', async (req, res, next) => {
 		var a_title = 'a_title';
 		var list_url = req.query.url
 		var isit_playlist = list_url.indexOf('playlist')
-		var link_list = new Array();
+		// var link_list = new Array();
 
 		if (isit_playlist != -1){
 			var setLT = ytlist(list_url, 'url').then(res => {
 				link_list = res.data.playlist;
+				console.log(link_list)
 				for(i = 0; i<link_list.length; i++){
 					getTitleAudio(link_list[i])
 				}
@@ -96,6 +91,6 @@ app.get('/downloadmp3', async (req, res, next) => {
 	}
 });
 
-// app.listen(PORT, () => {
-// 	console.log(`Server Works !!! At port ${PORT}`);
-// });
+app.listen(PORT, () => {
+	console.log(`Server Works !!! At port ${PORT}`);
+});
