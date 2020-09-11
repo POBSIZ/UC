@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>playlist</title>
-        <meta http-equiv="refresh" content="5">
+        <meta http-equiv="refresh" content="8">
     </head>
 
     <body>
@@ -87,11 +87,11 @@
                 <div class="p_list">
                     <div class="p_name">
                         <a class="vid_name" href="<%= link_list[i] %>"  target="_blank">
-                            <strong> <%= link_list[i] %> </strong> 
+                            <strong> <%= title_list[i] %> </strong> 
                         </a>   
                     </div>  
-                    <button id="btn_mp" value="mp4" onclick="redirectMp4(<%= link_list[i] %>);">MP4</button> 
-                    <button id="btn_mp" value="mp3" onclick="redirectMp3(<%= link_list[i] %>);">MP3</button> 
+                    <button id="btn_mp" value="mp4" onclick="redirectMp4('<%= link_list[i] %>');">MP4</button>
+                    <button id="btn_mp" value="mp3" onclick="redirectMp3('<%= link_list[i] %>');">MP3</button>
                     <hr>  
                 </div>   
             <% } %>  
@@ -100,22 +100,24 @@
     <script>
         let serverURL = 'http://localhost:2393';
         
-        function WinClose(){
-        window.open('','_self').close();     
+        function pageRefresh(time){
+            setTimeout(function(){window.location.reload(true)},time*1000);
         }
 
-        function redirectMp3(query) {
-            console.log("hello")  
+        function WinClose(){
+            newWindow.open('','_self').close();     
+        }
+
+        function redirectMp3(query) {  
             var newWindow = window.open("about:blank");
             newWindow.location.href = `${serverURL}/../../downloadmp3?url=${query}`;
-            setTimeout(window.close(),3000);
+            setTimeout(function() {WinClose()},3000);
         }
 
         function redirectMp4(query) {
-            console.log("hello")
             var newWindow = window.open("about:blank");
             newWindow.location.href = `${serverURL}/../../downloadmp4?url=${query}`;
-            setTimeout(window.close(),3000);
+            setTimeout(function() {WinClose()},3000);
         }
     </script>
 </html>
