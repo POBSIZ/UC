@@ -2,10 +2,10 @@ const express = require('express');
 const cors = require('cors');
 const ytlist = require('youtube-playlist');
 const ytdl = require('ytdl-core');
-const app = express();
+const app = express.Router();
 const ejs = require('ejs');
-const fs = require('fs');
-const http = require('http');
+// const fs = require('fs');
+// const http = require('http');
 const PORT = 2393;
 
 app.use(cors());
