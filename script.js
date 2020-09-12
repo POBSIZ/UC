@@ -1,7 +1,7 @@
 let Btn = document.getElementById('btn');
 let URLinput = document.querySelector('.URL-input');
 let select = document.querySelector('.opt');
-let serverURL = 'http://localhost:2393';
+let serverURL = window.location.pathname;
 
 var plist = document.getElementById('playlist');
 // var iiPL = URLinput.value.indexOf('playlist');
