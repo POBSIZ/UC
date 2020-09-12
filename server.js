@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const ytlist = require('youtube-playlist');
 const ytdl = require('ytdl-core');
-const app = express.Router();
+const app = express();
 const ejs = require('ejs');
 // const fs = require('fs');
 // const http = require('http');
@@ -14,35 +14,35 @@ app.use(cors());
 app.set('view engine', 'ejs');
 app.set('views', './views')
 
-app.get('/', async(req, res, next)=>{1
+app.router.get('/', async(req, res, next)=>{1
 	res.sendFile(__dirname + '/index.html');
 });
 
-app.get('/script.js', (req, res, next) => {
+app.router.get('/script.js', (req, res, next) => {
 	res.sendFile(__dirname + '/script.js');
 });
 
-app.get('/style.css', (req, res, next) => {
+app.router.get('/style.css', (req, res, next) => {
 	res.sendFile(__dirname + '/style.css');
 });
 
-app.get('/playlist.html', (req, res, next) => {
+app.router.get('/playlist.html', (req, res, next) => {
 	res.sendFile(__dirname + '/playlist.html');
 });
 
-app.get('/p_list.js', (req, res, next) =>{
+app.router.get('/p_list.js', (req, res, next) =>{
 	res.sendFile(__dirname + '/p_list.js');
 })
 
 var link_list = new Array();
 var title_list = new Array();
 
-app.get('/views/temp.ejs', (req, res, next)=>{
+app.router.get('/views/temp.ejs', (req, res, next)=>{
 	res.render(__dirname + '/views/temp', {link_list: link_list, title_list: title_list});
 });
 
 // Youtube download function
-app.get('/downloadmp3', async (req, res, next) => {
+app.router.get('/downloadmp3', async (req, res, next) => {
 	try {
 		function getTitleAudio (videoUrl){
 			return new Promise ((resolve, reject) => {
@@ -98,7 +98,7 @@ app.get('/downloadmp3', async (req, res, next) => {
 	}
 });
 
-app.get('/downloadmp4', async (req, res, next) => {
+app.router.get('/downloadmp4', async (req, res, next) => {
 	try {
 		function getTitleVideo(videoUrl){
 			return new Promise ((resolve, reject) => {
