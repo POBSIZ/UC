@@ -27,10 +27,10 @@ function setBlock(time){
 
 function redirectMp3(query) {
 	var newWindow = window.open("about:blank");
-	newWindow.location.href = `${serverURL}/downloadmp3?url=${query}`;
+	newWindow.location.href = serverURL+`/downloadmp3?url=`+query;
 }
 
 function redirectMp4(query) {
 	var newWindow = window.open("about:blank");
-	newWindow.location.href = `${serverURL}/downloadmp4?url=${query}`;
+	newWindow.location.href = serverURL+`/downloadmp4?url=`+query`;
 }
