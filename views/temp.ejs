@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <% var Tload = 5; %> 
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>playlist</title>
-        <meta http-equiv="refresh" content="8">
+        <meta http-equiv="refresh" content="10">
+        <!-- <script src="../script.js"></script> -->
     </head>
-
     <body>
         <style>
             .p_name{
@@ -29,6 +30,19 @@
             }
             button:hover{
                 background-color: #ff3a54;
+                width: 20%;
+            }
+
+            #Clist button{
+                text-align: center;
+                position: relative;
+                top: auto;
+                height: 20px;
+                width: 20%;
+            }
+            #Clist button:hover{
+                background-color: #ff3a54;
+                width: 25%;
             }
 
             a.vid_name{
@@ -70,6 +84,10 @@
             }   
         </style>
 
+        <!-- <div id="Clist" style="display: block;">
+        <button onclick="clearList()">Clear LIST</button>
+        </div> -->
+
         <div class="p_list" style="display: none;">
             <div class="p_name">
                 <a class="vid_name" href="" target="_blank">
@@ -80,8 +98,10 @@
             <button class="bttn" value="mp4">MP4</button>
             <hr>
         </div> 
- 
-        <% if (link_list.length > 0){ %>
+
+
+        <% if (link_list.length > 0){ %> 
+            <% Tload = 5; %> 
             <% console.log(link_list.length) %> 
             <% for(i = 0; i < link_list.length; i++){ %> 
                 <div class="p_list">
@@ -95,11 +115,18 @@
                     <hr>  
                 </div>   
             <% } %>  
-          <% } %>
+        <% }else{ %>
+            <% Tload = 5; %> 
+        <% } %> 
+
     </body>
     <script>
         let serverURL = 'http://localhost:2393';
-        
+
+        function clearList(){
+            link_list = {};
+        }
+
         function pageRefresh(time){
             setTimeout(function(){window.location.reload(true)},time*1000);
         }

@@ -59,6 +59,9 @@ input{
     border-color: #FF0022;
     outline: none;
 }
+input:focus{
+    height: 25px;
+}
 
 button{
     background-color: #FF0022;
@@ -73,6 +76,7 @@ button{
 }
 button:hover{
     background-color: #ff3a54;
+    width: 25%;
 }
 
 .opt{

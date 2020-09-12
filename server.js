@@ -70,6 +70,10 @@ app.get('/downloadmp3', async (req, res, next) => {
 		var isit_playlist = list_url.indexOf('playlist')
 
 		if (isit_playlist != -1){
+			if(link_list.length > title_list.length){
+				link_list = {};
+				title_list = {};
+			}
 			ytlist(list_url, 'url').then(res => {
 				link_list = res.data.playlist;
 				link_list = link_list;
@@ -78,7 +82,6 @@ app.get('/downloadmp3', async (req, res, next) => {
 				for(i = 0; i<link_list.length; i++){
 					getTitleAudio(link_list[i]);
 				}
-				console.log(title_list);
 			}).then(res => {
 				ejs.renderFile(__dirname + '/views/temp.ejs', {
 					link_list: link_list, 
@@ -130,7 +133,6 @@ app.get('/downloadmp4', async (req, res, next) => {
 				for(i = 0; i<link_list.length; i++){
 					getTitleAudio(link_list[i]);
 				}
-				console.log(title_list);
 			}).then(res => {
 				ejs.renderFile(__dirname + '/views/temp.ejs', {
 					link_list: link_list, 
