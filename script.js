@@ -1,7 +1,7 @@
 let Btn = document.getElementById('btn');
 let URLinput = document.querySelector('.URL-input');
 let select = document.querySelector('.opt');
-let serverURL = 'https://utube-convert.herokuapp.com/';
+let serverURL = 'https://utube-convert.herokuapp.com';
 
 var plist = document.getElementById('playlist');
 // var iiPL = URLinput.value.indexOf('playlist');
