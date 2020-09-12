@@ -14,7 +14,7 @@ app.use(cors());
 app.set('view engine', 'ejs');
 app.set('views', './views')
 
-app.get('/', async(req, res, next)=>{1
+app.get('/', async(req, res, next)=>{
 	res.sendFile(__dirname + '/index.html');
 });
 
