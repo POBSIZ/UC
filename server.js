@@ -70,10 +70,11 @@ app.get('/downloadmp3', async (req, res, next) => {
 		var isit_playlist = list_url.indexOf('playlist')
 
 		if (isit_playlist != -1){
-			if(link_list.length > title_list.length){
-				link_list = {};
-				title_list = {};
+			if(link_list.length > 0){
+				link_list = new Array();
+				title_list = new Array();
 			}
+
 			ytlist(list_url, 'url').then(res => {
 				link_list = res.data.playlist;
 				link_list = link_list;
