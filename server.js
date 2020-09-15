@@ -81,7 +81,7 @@ app.get('/downloadmp3', async (req, res, next) => {
 				link_list = link_list;
 				title_list = title_list;
 				console.log(link_list);
-				for(i = 0; i<link_list.length; i++){
+				for(var i = 0; i<link_list.length; i++){
 					getTitleAudio(link_list[i]);
 				}
 			}).then(res => {
@@ -137,7 +137,7 @@ app.get('/downloadmp4', async (req, res, next) => {
 				link_list = link_list;
 				title_list = title_list;
 				console.log(link_list);
-				for(i = 0; i<link_list.length; i++){
+				for(var i = 0; i<link_list.length; i++){
 					getTitleAudio(link_list[i]);
 				}
 			}).then(res => {
