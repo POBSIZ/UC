@@ -102,11 +102,11 @@
 
         <% if (link_list.length > 0){ %> 
             <% Tload = 5; %> 
-            <% for(i = 0; i < link_list.length; i++){ %> 
+            <% for(var i = 0; i < link_list.length; i++){ %> 
                 <div class="p_list">
                     <div class="p_name">
                         <a class="vid_name" href="<%= link_list[i] %>"  target="_blank">
-                            <strong> <%= title_list[i] %> </strong> 
+                            <strong> <% i %> </strong> 
                         </a>   
                     </div>  
                     <button id="btn_mp" value="mp4" onclick="redirectMp4('<%= link_list[i] %>');">MP4</button>
