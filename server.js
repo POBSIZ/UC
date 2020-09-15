@@ -71,7 +71,7 @@ app.get('/downloadmp3', async (req, res, next) => {
 		var isit_playlist = list_url.indexOf('playlist')
 
 		if (isit_playlist != -1){
-			if(link_list.length > 0){
+			if(link_list.length && title_list.length > 0){
 				link_list = new Array();
 				title_list = new Array();
 			}
@@ -127,7 +127,7 @@ app.get('/downloadmp4', async (req, res, next) => {
 		var isit_playlist = list_url.indexOf('playlist')
 
 		if (isit_playlist != -1){
-			if(link_list.length > 0){
+			if(link_list.length && title_list.length> 0){
 				link_list = new Array();
 				title_list = new Array();
 			}
