@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>playlist</title>
-        <meta http-equiv="refresh" content="10">
+        <meta http-equiv="refresh" content="5">
         <!-- <script src="../script.js"></script> -->
     </head>
     <body>
@@ -102,7 +102,6 @@
 
         <% if (link_list.length > 0){ %> 
             <% Tload = 5; %> 
-            <% console.log(link_list.length) %> 
             <% for(i = 0; i < link_list.length; i++){ %> 
                 <div class="p_list">
                     <div class="p_name">
@@ -122,6 +121,7 @@
     </body>
     <script>
         let serverURL = 'https://utube-convert.herokuapp.com';
+        // let serverURL = 'http://localhost:2393';
 
         function clearList(){
             link_list = {};
