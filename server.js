@@ -76,7 +76,7 @@ app.get('/downloadmp3', async (req, res, next) => {
 		if (isit_playlist != -1){
 			if(link_list.length && title_list.length > 0){
 				link_list = new Array();
-				title_list = new Array();
+				title_L = new Array();
 			}
 
 			ytlist(list_url, 'url').then(res => {
