@@ -35,11 +35,15 @@ app.get('/p_list.js', (req, res, next) =>{
 })
 
 var link_list = new Array();
-var title_list = new Array();
+var title_L = new Array();
+
 // window.location.href = '/views/temp.ejs';
 
 app.get('/views/temp.ejs', (req, res, next)=>{
-	res.render(__dirname + '/views/temp', {link_list: link_list, title_list: title_list});
+	res.render(__dirname + '/views/temp', {
+		link_list: link_list,
+		title_L: title_L, 
+	});
 });
 
 // Youtube download function
@@ -51,11 +55,10 @@ app.get('/downloadmp3', async (req, res, next) => {
 				if (err) throw err;
 					a_title = info.videoDetails.title.replace(/[^\x00-\x7F]/g, "");
 					console.log(info.title)
-				title_list.push(info.title);
 				resolve (info.title)
-				})
-			})
-			} 
+				});
+			});
+		} 
 		
 		function downloadAUDIO(){			
 			res.header('Content-Disposition', `attachment; filename="${a_title}.mp3"`);
@@ -78,17 +81,20 @@ app.get('/downloadmp3', async (req, res, next) => {
 
 			ytlist(list_url, 'url').then(res => {
 				link_list = res.data.playlist;
+
 				link_list = link_list;
-				title_list = title_list;
-				console.log(link_list);
-				for(var i = 0; i<link_list.length; i++){
-					getTitleAudio(link_list[i]);
-				}
-			}).then(res => {
-				ejs.renderFile(__dirname + '/views/temp.ejs', {
-					link_list: link_list, 
-					title_list: title_list,
-				}, {}, function(err, str){if (err) console.log(err)});
+				title_L = title_L;
+			}).then(
+				ytlist(list_url, 'name').then(res =>{
+					title_L = res.data.playlist
+					title_L = title_L
+				})
+			).then(	res => {
+					ejs.renderFile(__dirname + '/views/temp.ejs', {
+						link_list: link_list,
+						title_L: title_L,
+					}, {}, function(err, str){if (err) console.log(err)}
+			)
 			});//.then(window.location.href.reload());
 		}
 		else{
@@ -108,11 +114,10 @@ app.get('/downloadmp4', async (req, res, next) => {
 				if (err) throw err;
 					a_title = info.videoDetails.title.replace(/[^\x00-\x7F]/g, "");
 					console.log(info.title)
-				title_list.push(info.title);
 				resolve (info.title)
-				})
-			})
-			} 
+				});
+			});
+		} 
 		
 		function downloadAUDIO(){			
 			res.header('Content-Disposition', `attachment; filename="${a_title}.mp4"`);
@@ -127,24 +132,27 @@ app.get('/downloadmp4', async (req, res, next) => {
 		var isit_playlist = list_url.indexOf('playlist')
 
 		if (isit_playlist != -1){
-			if(link_list.length && title_list.length> 0){
+			if(link_list.length && title_list.length > 0){
 				link_list = new Array();
 				title_list = new Array();
 			}
 
 			ytlist(list_url, 'url').then(res => {
 				link_list = res.data.playlist;
+
 				link_list = link_list;
-				title_list = title_list;
-				console.log(link_list);
-				for(var i = 0; i<link_list.length; i++){
-					getTitleAudio(link_list[i]);
-				}
-			}).then(res => {
-				ejs.renderFile(__dirname + '/views/temp.ejs', {
-					link_list: link_list, 
-					title_list: title_list,
-				}, {}, function(err, str){if (err) console.log(err)});
+				title_L = title_L;
+			}).then(
+				ytlist(list_url, 'name').then(res =>{
+					title_L = res.data.playlist
+					title_L = title_L
+				})
+			).then(	res => {
+					ejs.renderFile(__dirname + '/views/temp.ejs', {
+						link_list: link_list,
+						title_L: title_L,
+					}, {}, function(err, str){if (err) console.log(err)}
+			)
 			});//.then(window.location.href.reload());
 		}
 		else{
