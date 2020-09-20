@@ -20,6 +20,7 @@ a:visited{
 }
 .title-top:hover{
     text-decoration: underline;
+    transition: .3s;
 }
 
 .main-top{
@@ -61,6 +62,7 @@ input{
 }
 input:focus{
     height: 25px;
+    transition: .3s;
 }
 
 button{
@@ -77,6 +79,7 @@ button{
 button:hover{
     background-color: #ff3a54;
     width: 25%;
+    transition: .3s;
 }
 
 .opt{
