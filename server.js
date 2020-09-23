@@ -65,7 +65,7 @@ app.get('/downloadmp3', async (req, res, next) => {
 			ytdl(list_url, {
 				format: 'mp3',
 				filter: 'audioonly',
-				quality: 'highest',
+				quality: 'highestaudio',
 			}).pipe(res);
 		}
 
@@ -123,7 +123,7 @@ app.get('/downloadmp4', async (req, res, next) => {
 			res.header('Content-Disposition', `attachment; filename="${a_title}"`);
 			ytdl(list_url, {
 				format: 'mp4',
-				quality: 'highest',
+				quality: 'highestvideo',
 			}).pipe(res);
 		}
 
