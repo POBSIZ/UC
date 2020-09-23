@@ -61,11 +61,11 @@ app.get('/downloadmp3', async (req, res, next) => {
 		} 
 		
 		function downloadAUDIO(){			
-			res.header('Content-Disposition', `attachment; filename="${a_title}.mp3"`);
+			res.header('Content-Disposition', `attachment; filename="${a_title}mp3"`);
 			ytdl(list_url, {
 				format: 'mp3',
 				filter: 'audioonly',
-				quality: 'highestaudio',
+				quality: 'highest',
 			}).pipe(res);
 		}
 
@@ -120,10 +120,10 @@ app.get('/downloadmp4', async (req, res, next) => {
 		} 
 		
 		function downloadAUDIO(){			
-			res.header('Content-Disposition', `attachment; filename="${a_title}.mp4"`);
+			res.header('Content-Disposition', `attachment; filename="${a_title}"`);
 			ytdl(list_url, {
 				format: 'mp4',
-				quality: 'highestvideo',
+				quality: 'highest',
 			}).pipe(res);
 		}
 
