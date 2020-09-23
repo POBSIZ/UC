@@ -123,7 +123,7 @@ app.get('/downloadmp4', async (req, res, next) => {
 			res.header('Content-Disposition', `attachment; filename="${a_title}.mp4"`);
 			ytdl(list_url, {
 				format: 'mp4',
-				filter: 'audioandvideo',
+				filter: 'video',
 				quality: 'highestvideo',
 			}).pipe(res);
 		}
