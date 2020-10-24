@@ -114,7 +114,7 @@
                             <strong> <%= title_L[i] %> </strong> 
                         </a>   
                     </div>  
-                    <button id="btn_mp" value="mp4" onclick="redirectMp4('<%= link_list[i] %>');">MP4</button>
+                    <!-- <button id="btn_mp" value="mp4" onclick="redirectMp4('link_list[i]');">MP4</button> -->
                     <button id="btn_mp" value="mp3" onclick="redirectMp3('<%= link_list[i] %>');">MP3</button>
                     <hr>  
                 </div>   
@@ -146,10 +146,10 @@
             setTimeout(function() {WinClose()},3000);
         }
 
-        function redirectMp4(query) {
-            var newWindow = window.open("about:blank");
-            newWindow.location.href = `${serverURL}/../../downloadmp4?url=${query}`;
-            setTimeout(function() {WinClose()},3000);
-        }
+        // function redirectMp4(query) {
+        //     var newWindow = window.open("about:blank");
+        //     newWindow.location.href = `${serverURL}/../../downloadmp4?url=${query}`;
+        //     setTimeout(function() {WinClose()},3000);
+        // }
     </script>
 </html>
