@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <title>UC</title>
+</head>
+
+<body>
+    <header>
+        <div class="main-top">
+            <h1 class="title-top"><a href="">UC</a></h1>
+        </div>
+    </header>
+
+    <div class="main-function">
+        <div class="search">
+            <input type="text" class="URL-input" placeholder="Input video url OR playlist url">
+            <select class='opt'>
+                <option value='mp3'>mp3</option>
+                <!-- <option value='mp4'>mp4</option> -->
+            </select>
+        </div>
+        <button class="convert-button" id="btn">FOUND</button>
+        
+        <div id="playlist" style="display: none;">
+            <iframe src="temp.ejs" title="playlist"></iframe>
+        </div>
+    </div>
+
+
+    <footer class="low-section">
+        <br>
+        <!-- <strong id="copyright">Copyright BY POBSIZ</strong> -->
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+
+</html>
